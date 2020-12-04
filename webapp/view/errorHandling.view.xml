@@ -1,0 +1,68 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:ui="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="serNow.conect.alert.controller.errorHandling" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="true" title="">
+		<customHeader>
+			<Bar class="headerBar">
+				<contentLeft>
+					<Image src="images/corealm-logo-2019.png" width="8rem"/>
+					<Button icon="sap-icon://nav-back" press="onNavBack" class="sapUiSmallMarginBegin" tooltip="Back to Main"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Error Handling" class="font-lg"/>
+				</contentMiddle>
+				<contentRight>
+					<HBox>
+						<Button text="{parts: [ 'loginModel>/First', 'loginModel>/Last' ],formatter: '.userList'}" tooltip="{loginModel>/name}" id="userLogin"
+							type="Transparent" press="onUserNamePress" class="sapUiTinyMarginEnd sapUiTinyMarginBegin username"></Button>
+						<Label id="userId" text="{loginModel>/PARTNER}" visible="false"></Label>
+					</HBox>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiLargeMargin">
+			<HBox alignItems="Baseline" justifyContent="End">
+				<MultiComboBox selectedKeys="1,2,3" selectionChange="handleSelectionChange">
+					<core:Item key="1" text="Name"/>
+					<core:Item key="2" text="Hello"/>
+					<core:Item key="3" text="World"/>
+				</MultiComboBox>
+			</HBox>
+			<ui:Table id="table1" rows="{errorRes>/}" selectionMode="MultiToggle" visibleRowCount="7" ariaLabelledBy="title">
+				<ui:columns>
+					<ui:Column width="11rem">
+						<Label text="Id"/>
+						<ui:template>
+							<Text text="{errorRes>Step}" wrapping="false"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Status"/>
+						<ui:template>
+							<Text text="{errorRes>Status}"/>
+						</ui:template>
+					</ui:Column>
+					<!--<ui:Column width="6rem" hAlign="End">
+						<Label text="Quantity"/>
+						<ui:template>
+							<Label text="{errorRes>Quantity}"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Delivery Date"/>
+						<ui:template>
+							<DatePicker value="{ path: 'errorRes>Crdate', type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'timestamp'}} }"/>
+						</ui:template>
+					</ui:Column>-->
+				</ui:columns>
+			</ui:Table>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar class="sapUiSizeCompact">
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Update" icon="sap-icon://save"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

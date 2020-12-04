@@ -1,0 +1,99 @@
+<mvc:View controllerName="serNow.conect.alert.controller.ProcessDetail" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:cust="serNow.conect.alert.model">
+	<Page id="page" title="Status Mapping" class="detailsPage sapUiResponsiveContentPadding" showNavButton="true" navButtonPress="onNavBack">
+		<customHeader>
+			<Bar class="headerBar">
+				<contentLeft>
+					<Image src="images/corealm-logo-2019.png" width="5rem"/>
+					<Button icon="sap-icon://nav-back" press="onNavBack" class="sapUiSmallMarginBegin" tooltip="Back to Assignment Routing"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Status Mapping" class="font-lg"/>
+				</contentMiddle>
+				<contentRight>
+					<HBox>
+						<Button text="{parts: [ 'loginModel>/First', 'loginModel>/Last' ],formatter: 'com.coreALMDigitalScrumboard.util.formatter.userList'}"
+							tooltip="{loginModel>/name}" id="userLogin" type="Transparent" press="onUserNamePress"
+							class="sapUiTinyMarginEnd sapUiTinyMarginBegin username"></Button>
+						<Label id="userId" text="{loginModel>/PARTNER}" visible="false"></Label>
+					</HBox>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="6" labelSpanL="6" labelSpanM="6" labelSpanS="12"
+				adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false" class="sapUiSizeCompact">
+				<f:content>
+					<Label text="ServiceNow Change"/>
+					<Text text="{Valueinetool}"/>
+					<Label text="Alert Transaction"/>
+					<Text text="{Valueinsap}" id="fieldinetool"/>
+				</f:content>
+			</f:SimpleForm>
+			<HBox width="100%" justifyContent="End" class="sapUiSizeCompact">
+				<Button icon="sap-icon://add" tooltip="Add Row" class="sapUiTinyMarginEnd" press="addNewRowMapDetail"
+					visible="{=${authModel>/Auth} ? true : false}"/>
+				<!--<Label text="Initiating System" class="sapUiTinyMarginTop"/>
+				<SegmentedButton selectedKey="snow" class="sapUiSmallMarginBeginEnd" selectionChange="onInitSysChange" id="idSegSnowDet" width="200px">
+					<items>
+						<SegmentedButtonItem text="ServiceNow" key="snow"/>
+						<SegmentedButtonItem text="SAP Alert" key="Alert"/>
+					</items>
+				</SegmentedButton>-->
+			</HBox>
+			<Table id="table" width="auto" items="{path : 'viewModel>/', templateShareable: true, sorter : {path : 'Fieldinetool'}}"
+				noDataText="No Data" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished" class="processDetTable sapUiSizeCompact"
+				alternateRowColors="false">
+				<columns>
+					<Column width="22%" hAlign="Center">
+						<Text text="ServiceNow Status"/>
+					</Column>
+					<Column width="10%" hAlign="Center">
+						<Text text="Direction"/>
+					</Column>
+					<Column width="23%" hAlign="Center">
+						<Text text="Alert Status"/>
+					</Column>
+					<Column width="43%">
+						<Text text="Comments"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!--<Select forceSelection="false" selectedKey="{viewModel>Valueinetool}" items="{path : 'selectModel>/', templateShareable: false}"
+								enabled="{=${enbModel>/enabled} ? true : false}">
+								<core:Item text="{selectModel>Description}" key="{selectModel>Status}" enabled="{selectModel>enabled}"/>
+							</Select>-->
+							<Select forceSelection="false" selectedKey="{viewModel>Valueinetool}" items="{JirastatModel>/}"
+								enabled="{=${enbModel>/enabled} ? true : false}">
+								<core:Item key="{JirastatModel>id}" text="{JirastatModel>name}"/>
+							</Select>
+							<HBox justifyContent="Center">
+								<core:Icon src="sap-icon://source-code"/>
+								<!--<core:Icon src="sap-icon://arrow-right"
+									visible="{parts : [{path: 'viewModel>/'},{path : 'viewModel>Valueinetool'},{path : 'viewModel>Valueinsap'}], formatter : '.showHideRightArrowInStMap'}"/>
+								<core:Icon src="sap-icon://arrow-left"
+									visible="{parts : [{path: 'viewModel>/'},{path : 'viewModel>Valueinetool'},{path : 'viewModel>Valueinsap'}], formatter : '.showHideLeftArrowInStMap'}"/>-->
+							</HBox>
+							<Select forceSelection="false" id="select" selectedKey="{viewModel>Fieldinetool}" items="{path : 'selectModel>/', templateShareable: false}"
+								enabled="{=${enbModel>/enabled} ? true : false}" change="onStatusChange">
+								<core:Item text="{selectModel>Description}" key="{selectModel>Status}" enabled="{selectModel>enabled}"/>
+							</Select>
+							<Input value="{viewModel>Comments}" enabled="{=${enbModel>/enabled} ? true : false}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Toolbar class="sapUiSizeCompact">
+				<ToolbarSpacer/>
+				<Button text="Cancel" press="onProcessMappingAction" id="cancel" visible="false"/>
+				<Button text="Edit" press="onProcessMappingAction" id="edit" visible="{=${authModel>/Auth} ? true : false}"/>
+				<Button type="Accept" text="Save" icon="sap-icon://save" press="onProcessMappingAction" visible="false" id="save"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

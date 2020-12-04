@@ -1,0 +1,64 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="serNow.conect.alert.controller.Help" xmlns="sap.m" displayBlock="true"
+	xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="">
+		<customHeader>
+			<Bar class="headerBar">
+				<contentLeft>
+					<Image src="images/corealm-logo-2019.png" width="8rem"/>
+					<Button icon="sap-icon://nav-back" press="onNavBack" class="sapUiSmallMarginBegin" tooltip="Back to Main"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="This is where you can submit tickets or requests 24/7 customer support" class="font-lg"/>
+				</contentMiddle>
+				<contentRight>
+					<HBox>
+						<Button text="{parts: [ 'loginModel>/First', 'loginModel>/Last' ],formatter: 'com.coreALMDigitalScrumboard.util.formatter.userList'}"
+							tooltip="{loginModel>/name}" id="userLogin" type="Transparent" press="onUserNamePress"
+							class="sapUiTinyMarginEnd sapUiTinyMarginBegin username"></Button>
+						<Label id="userId" text="{loginModel>/PARTNER}" visible="false"></Label>
+					</HBox>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<HBox justifyContent="SpaceAround" class="tileHBox">
+				<GenericTile class="helpTileClass help1" headerImage="sap-icon://email">
+					<tileContent>
+						<TileContent>
+							<content>
+								<VBox class="contVBox">
+									<Text text="For direct email to our 24/7 support please email at:"/>
+									<Link text="Support@corealm.com" press="triggerMail"/>
+								</VBox>
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+				<GenericTile class="helpTileClass help2" headerImage="sap-icon://request">
+					<tileContent>
+						<TileContent>
+							<content>
+								<VBox class="contVBox">
+									<Text text="If you would like to submit a ticket request go to:"/>
+									<Link text="Support Page" press="onChatSupportPress"/>
+								</VBox>
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+				<GenericTile class="helpTileClass help3" headerImage="sap-icon://post">
+					<tileContent>
+						<TileContent>
+							<content>
+								<VBox class="contVBox">
+									<Text text="For live chat support you can go to:"/>
+									<Link text="Chat Support" press="onChatSupportPress"/>
+								</VBox>
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+			</HBox>
+		</content>
+	</Page>
+</mvc:View>

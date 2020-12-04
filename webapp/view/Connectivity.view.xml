@@ -1,0 +1,74 @@
+<mvc:View controllerName="serNow.conect.alert.controller.Connectivity" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:cust="serNow.conect.alert.model">
+	<Page showHeader="true" id="page" title="">
+		<customHeader>
+			<Bar class="headerBar">
+				<contentLeft>
+					<Image src="images/corealm-logo-2019.png" width="8rem"/>
+					<Button icon="sap-icon://nav-back" press="onNavBack" class="sapUiSmallMarginBegin" tooltip="Back to Main"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Connectivity" class="font-lg"/>
+				</contentMiddle>
+				<contentRight>
+					<HBox>
+						<Button text="{parts: [ 'loginModel>/First', 'loginModel>/Last' ],formatter: '.userList'}" tooltip="{loginModel>/name}" id="userLogin"
+							type="Transparent" press="onUserNamePress" class="sapUiTinyMarginEnd sapUiTinyMarginBegin username"></Button>
+						<Label id="userId" text="{loginModel>/PARTNER}" visible="false"></Label>
+					</HBox>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiSizeCompact">
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="ServiceNow Connection Details" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+					<Label text="Destination Name"/>
+					<Input value="{dest>Rfcdest}" enabled="{=${dest>Rfcdest} ? false : true}"/>
+					<Label text="Destination Description"/>
+					<Input value="{dest>Desc}" enabled="{dest>enabled}"/>
+					<Label text="ServiceNow URL"/>
+					<Input value="{dest>Rfchost}" enabled="{dest>enabled}"/>
+					<!--<Label text="Service"/>
+					<Input value="{dest>Service}" enabled="{dest>enabled}"/>
+					<Label text="Port"/>
+					<Input value="{dest>Port}" enabled="false"/>-->
+					<Label text="ServiceNow User"/>
+					<Input value="{dest>User}" enabled="{dest>enabled}"/>
+					<Label text="Password"/>
+					<Input type="Password" value="{dest>Pass}" enabled="{dest>enabled}"/>
+					<Label/>
+					<CheckBox text="Use Proxy" select=".onProxySelect" enabled="{dest>enabled}"
+						selected="{parts: [{path : 'dest>ProxyHost'}, {path : 'dest>ProxyService'},{path : 'dest>ProxyUser'}], formatter : '.formatProxySelection'}"/>
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="Proxy Details" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false" id="proxyForm"
+				visible="{parts: [{path : 'dest>ProxyHost'}, {path : 'dest>ProxyService'},{path : 'dest>ProxyUser'}], formatter : '.formatProxySelection'}">
+				<f:content>
+					<Label text="Host"/>
+					<Input value="{dest>ProxyHost}" enabled="{dest>enabled}"/>
+					<Label text="Service"/>
+					<Input value="{dest>ProxyService}" enabled="{dest>enabled}"/>
+					<Label text="User"/>
+					<Input value="{dest>ProxyUser}" enabled="{dest>enabled}"/>
+					<Label text="Password"/>
+					<Input type="Password" value="{dest>ProxyPassword}" enabled="{dest>enabled}"/>
+				</f:content>
+			</f:SimpleForm>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button type="Default" text="Check Connection" icon="sap-icon://overview-chart" press="onConnectionCheck" id="check"/>
+				<Button text="Cancel" id="cancel" visible="false" press="onConnection"/>
+				<Button text="Save" id="save" visible="false" press="onConnection"/>
+				<Button text="Edit" id="edit" press="onConnection" visible="{=${authModel>/Auth} ? true : false}"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,256 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "serNow.conect.alert",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/CORE/CJ_CHARMJIRAMAP_SRV",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"loginService": {
+				"uri": "/sap/opu/odata/CORE/AGDO_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"systmConfig": {
+				"uri": "/sap/opu/odata/CORE/CA_ALERT_MAPPING_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "serNow.conect.alert.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.44.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": false
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "serNow.conect.alert.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"useBatch": false
+				}
+			},
+			"login": {
+				"dataSource": "loginService",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"useBatch": false
+				}
+			},
+			"sysConfig": {
+				"dataSource": "systmConfig",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"useBatch": false
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "serNow.conect.alert.view",
+				"controlAggregation": "detailPages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "home",
+					"pattern": "",
+					"target": [
+						"home",
+						"configMand"
+					]
+				},
+				{
+					"name": "mapping",
+					"pattern": "mapping",
+					"target": [
+						"home",
+						"mapping"
+					]
+				},
+				{
+					"name": "processDetail",
+					"pattern": "processDetail/{Id}",
+					"target": [
+						"home",
+						"processDetail"
+					]
+				},
+				{
+					"name": "connectivity",
+					"pattern": "connectivity",
+					"target": [
+						"home",
+						"connectivity"
+					]
+				},
+				{
+					"name": "report",
+					"pattern": "report",
+					"target": [
+						"home",
+						"report"
+					]
+				},
+				{
+					"name": "prereq",
+					"pattern": "prereq",
+					"target": [
+						"home",
+						"prereq"
+					]
+				},
+				{
+					"name": "help",
+					"pattern": "help",
+					"target": [
+						"home",
+						"help"
+					]
+				},
+				{
+					"name": "error",
+					"pattern": "error",
+					"target": [
+						"home",
+						"error"
+					]
+                },
+                {
+					"name": "alert",
+					"pattern": "alert",
+					"target": [
+						"home",
+						"alert"
+					]
+				}
+			],
+			"targets": {
+				"home": {
+					"viewType": "XML",
+					"transition": "slide",
+					"controlAggregation": "masterPages",
+					"viewName": "Home"
+				},
+				"mapping": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "ProcessType"
+				},
+				"initial": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "Initial"
+				},
+				"processDetail": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "ProcessDetail"
+				},
+				"connectivity": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "Connectivity"
+				},
+				"report": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "Report"
+				},
+				"configMand": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "MandConfig"
+				},
+				"prereq": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "PreReq"
+				},
+				"help": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewName": "Help"
+				},
+				"error": {
+					"viewType": "XML",
+					"viewName": "errorHandling"
+                },
+                "alert": {
+					"viewType": "XML",
+					"viewName": "alertRouting"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/core/as_connector/webapp",
+		"_version": "1.1.0"
+	}
+}

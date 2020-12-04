@@ -1,0 +1,129 @@
+<mvc:View controllerName="serNow.conect.alert.controller.Report" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	displayBlock="true" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table">
+	<Page id="page" title="" class="sapUiResponsiveContentPadding" enableScrolling="false">
+		<customHeader>
+			<Bar class="headerBar">
+				<contentLeft>
+					<Image src="images/corealm-logo-2019.png" width="5rem"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Reporting" class="font-lg"/>
+				</contentMiddle>
+				<contentRight>
+					<HBox>
+						<Button text="{parts: [ 'loginModel>/First', 'loginModel>/Last' ],formatter: 'com.coreALMDigitalScrumboard.util.formatter.userList'}"
+							tooltip="{loginModel>/name}" id="userLogin" type="Transparent" press="onUserNamePress"
+							class="sapUiTinyMarginEnd sapUiTinyMarginBegin username"></Button>
+						<Label id="userId" text="{loginModel>/PARTNER}" visible="false"></Label>
+					</HBox>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiSizeCompact">
+				<Label text="Selection Criteria: " class="selClassRepo"/>
+				<FacetFilter id="idFilterSel" type="Simple" showPersonalization="true" showReset="true" reset="handleFacetFilterReset"
+					class="filterSelClass sapUiSizeCompact" lists="{filterModel>/}" confirm="onFacetFilterSelect">
+					<lists>
+						<FacetFilterList title="{filterModel>type}" key="{filterModel>key}" showRemoveFacetIcon="true" enableCaseInsensitiveSearch="true"
+							items="{path:'filterModel>values', templateShareable: true}" class="facetList" mode="MultiSelect" growingScrollToLoad="true">
+							<items>
+								<FacetFilterItem text="{filterModel>key} - {filterModel>text}" key="{filterModel>key}"></FacetFilterItem>
+							</items>
+						</FacetFilterList>
+					</lists>
+				</FacetFilter>
+				<t:Table id="reportTable" rows="{path : 'tableModel>/'}" enableBusyIndicator="true" selectionMode="None"
+					class="tableClass sapUiTinyMarginTop" enableColumnReordering="true" rowHeight="40px" visibleRowCount="11">
+					<t:toolbar>
+						<Toolbar class="sapUiTinyMarginBottom">
+							<Title id="title" text="Alert Report"></Title>
+							<ToolbarSpacer/>
+							<CheckBox text="Created from ServiceNow" select="onTableSearch" id="createdFromSnow"/>
+							<Button tooltip="Export to Excel" icon="sap-icon://excel-attachment" press="onExcelDownload" class="exportButton"/>
+							<Button tooltip="Clear Sort" icon="sap-icon://sys-cancel" press="clearAllSortings" type="Emphasized"/>
+							<Button tooltip="Clear Filter" icon="sap-icon://clear-filter" press="clearAllFilters" type="Emphasized"/>
+							<ComboBox items="{dateModel>/}" selectionChange="onFacetFilterSelect" id="idDateSelect" width="150px" placeholder="Select Period"
+								selectedKey="last7day">
+								<core:Item key="{dateModel>key}" text="{dateModel>desc}"/>
+							</ComboBox>
+							<SearchField id="searchFieldReport" class="sapUiTinyMargin" search="onTableSearch" width="17%"/>
+						</Toolbar>
+					</t:toolbar>
+					<t:columns>
+						<t:Column width="7rem" sortProperty="ObjectId" filterProperty="ObjectId">
+							<Label text="Alert ID"/>
+							<t:template>
+								<ObjectIdentifier title="{tableModel>ObjectId}" titleActive="true" titlePress="onLinkPressObject" class="charmClass">
+									<customData>
+										<core:CustomData key="snowid" value="{=${tableModel>Snowid} ? 'snow' : ''}" writeToDom="true"/>
+									</customData>
+								</ObjectIdentifier>
+							</t:template>
+						</t:Column>
+						<t:Column filterProperty="Description" width="12rem">
+							<Label text="Change Description"/>
+							<t:template>
+								<Text text="{tableModel>Description}"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="8rem" sortProperty="ProcessTypedesc" filterProperty="ProcessTypedesc">
+							<Label text="Change Type"/>
+							<t:template>
+								<Text text="{tableModel>ProcessTypedesc}"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="10rem" sortProperty="Statustxt" filterProperty="Statustxt">
+							<Label text="Change Status"/>
+							<t:template>
+								<Text text="{tableModel>Statustxt}" class="reqTabPrio">
+									<customData>
+										<core:CustomData key="reqStatus" value="{tableModel>Status}" writeToDom="true"/>
+									</customData>
+								</Text>
+							</t:template>
+						</t:Column>
+						<t:Column filterProperty="Transport" sortProperty="Transport" width="8rem" hAlign="Center">
+							<Label text="Transport Requests"/>
+							<t:template>
+								<Text text="{tableModel>Transport}"/>
+								<Link text="{path: 'tableModel>Transport', formatter: '.formatTransport'}" visible="{=${tableModel>Transport} ? true : false}"
+									press="onTransportView"/>
+							</t:template>
+						</t:Column>
+						<t:Column filterProperty="Cycle" width="6rem">
+							<Label text="Change Cycle"/>
+							<t:template>
+								<Text text="{tableModel>Cycle}"/>
+							</t:template>
+						</t:Column>
+						<t:Column sortProperty="CreatedBy" filterProperty="CreatedBy" width="7rem">
+							<Label text="Created By"/>
+							<t:template>
+								<Text text="{tableModel>CreatedBy}"/>
+							</t:template>
+						</t:Column>
+						<t:Column sortProperty="PostingDate" width="6rem">
+							<Label text="Created Date"/>
+							<t:template>
+								<Text text="{path : 'tableModel>PostingDate', type: 'sap.ui.model.type.Date'}"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="6rem" sortProperty="LogicalSystem" filterProperty="LogicalSystem">
+							<Label text="Landscape"/>
+							<t:template>
+								<Text text="{tableModel>LogicalSystem}"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="7rem" sortProperty="Snowid" filterProperty="Snowid">
+							<Label text="ServiceNow ID"/>
+							<t:template>
+								<Link text="{tableModel>Snowid}" press="onSnowIdPress"/>
+							</t:template>
+						</t:Column>
+					</t:columns>
+				</t:Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

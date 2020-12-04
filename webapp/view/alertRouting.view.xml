@@ -1,0 +1,66 @@
+<mvc:View controllerName="serNow.conect.alert.controller.alertRouting" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true"
+	xmlns:core="sap.ui.core" xmlns:ui="sap.ui.table">
+	<Page showHeader="true" class="initialPage" title="Mandatory Configuration">
+		<customHeader>
+			<Bar class="headerBar">
+				<contentLeft>
+					<Image src="images/corealm-logo-2019.png" width="8rem"/>
+                    <Button icon="sap-icon://nav-back" press="onNavBack" class="sapUiSmallMarginBegin" tooltip="Back to Main"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Alert Routing" class="font-lg"/>
+				</contentMiddle>
+				<contentRight>
+					<HBox>
+						<Button text="{parts: [ 'loginModel>/First', 'loginModel>/Last' ],formatter: '.userList'}"
+							tooltip="{loginModel>/name}" id="userLogin" type="Transparent" press="onUserNamePress"
+							class="sapUiTinyMarginEnd sapUiTinyMarginBegin username"></Button>
+						<Label id="userId" text="{loginModel>/PARTNER}" visible="false"></Label>
+					</HBox>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content >
+			<VBox class="sapUiLargeMargin">
+			<HBox alignItems="Baseline" justifyContent="End">
+			</HBox>
+			<ui:Table rows="{routeModel>/results}" selectionMode="None" visibleRowCount="7" ariaLabelledBy="title">
+				<ui:columns>
+					<ui:Column hAlign="Begin">
+						<Label text="Field"/>
+						<ui:template>
+							<ComboBox placeholder="Select Field" items="{ path: 'fieldModel>/' }" change="fieldChangeFn">
+					            <core:Item key="{fieldModel>FIELD_ID}" text="{fieldModel>FIELD_NAME}"/>
+				            </ComboBox>
+						</ui:template>
+					</ui:Column>
+                    <ui:Column hAlign="Begin">
+						<Label text="Value"/>
+						<ui:template>
+							<ComboBox enabled="false" placeholder="Select Value" items="{ path: 'valueModel>/' }" change="valueChangeFn">
+					            <core:Item key="{valueModel>FIELD_ID}" text="{valueModel>FIELD_NAME}"/>
+				            </ComboBox>
+						</ui:template>
+					</ui:Column>
+                    <ui:Column hAlign="Begin">
+						<Label text="Operator"/>
+						<ui:template>
+							<ComboBox enabled="false" placeholder="Select Operator" change="operatorChangeFn">
+					            <core:Item key="{fieldModel>FIELD_ID}" text="{fieldModel>FIELD_NAME}"/>
+				            </ComboBox>
+						</ui:template>
+					</ui:Column>
+                    <ui:Column hAlign="Begin">
+						<Label text="Assignment"/>
+						<ui:template>
+							<ComboBox enabled="false" placeholder="Select Assignment" items="{ path: 'assignModel>/' }" change="assignChangeFn">
+					            <core:Item key="{assignModel>FIELD_ID}" text="{assignModel>FIELD_NAME}"/>
+				            </ComboBox>
+						</ui:template>
+					</ui:Column>
+				</ui:columns>
+			</ui:Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

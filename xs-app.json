@@ -1,0 +1,17 @@
+{
+"authenticationMethod": "none",
+"routes":
+[
+{
+"authenticationType": "none",
+"csrfProtection": false,
+"source": "^/sap/opu/odata/",
+"destination": "S1D"
+},
+{
+"source": "^(.*)$",
+"target": "$1",
+"service": "html5-apps-repo-rt"
+}
+]
+}

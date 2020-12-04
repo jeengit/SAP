@@ -1,0 +1,19 @@
+<mvc:View controllerName="serNow.conect.alert.controller.Home" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout"
+	xmlns="sap.m" displayBlock="true" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" class="sapUiSizeCompact">
+	<!--<Button tooltip="Collapse/Expand" icon="sap-icon://menu2" press=".onCollapseExpandPress" class="expandBtn"/>-->
+	<!--<Image src="images/corealm-logo-white.png" class="logoClass"/>-->
+	<tnt:SideNavigation id="sideNavigation" class="sideNavigation" itemSelect="onNavSelect" selectedKey="home">
+		<tnt:NavigationList class="mainNav">
+			<tnt:NavigationListItem/>
+			<!--<tnt:NavigationListItem text="Home" icon="sap-icon://home" key="home"/>-->
+			<tnt:NavigationListItem text="Mandatory Configuration" icon="sap-icon://customize" expanded="false" key="home">
+				<!--<tnt:NavigationListItem text="System Preparation" key="prereq"/>
+				<tnt:NavigationListItem text="Connector Integration" key="connectivity"/>
+				<tnt:NavigationListItem text="Assignment Routing" key="mapping"/>-->
+			</tnt:NavigationListItem>
+			<tnt:NavigationListItem text="logging &amp; Error Handling" icon="sap-icon://business-objects-experience" key="error"/>
+			<!--<tnt:NavigationListItem text="Logs" icon="sap-icon://it-host" key="logs"/>-->
+			<tnt:NavigationListItem text="Help" icon="sap-icon://sys-help" key="help"/>
+		</tnt:NavigationList>
+	</tnt:SideNavigation>
+</mvc:View>

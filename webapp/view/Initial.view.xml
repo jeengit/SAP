@@ -1,0 +1,56 @@
+<mvc:View controllerName="serNow.conect.alert.controller.Initial" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:fm="sap.f" displayBlock="true" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="initialPage">
+		<!--<content>
+			<fm:GridListItem class="homeFlex">
+				<VBox height="100%">
+					<HBox height="100%" class="sapUiSmallMargin" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
+						<Image src="images/connect.png" width="200px" class="sapUiLargeMarginBegin sapUiSmallMarginEnd"/>
+						<VBox>
+							<Text text="ServiceNow Connector for SAP Solution Manager" class="sapUiMediumMarginBegin headFlex"/>
+							<Text
+								text="CoreALM SAP� ServiceNow Connector� is a robust out of the box solution that enables Integration between ServiceNow� and SAP� Solution Manager 7.2 Alert for Change Control Management and ITSM for Technical Monitoring and Alerting."
+								class="sapUiMediumMarginBegin sapUiMediumMarginTop homeTxt"/>
+						</VBox>
+					</HBox>
+					<HBox alignContent="Center" justifyContent="End" class="imgBox">
+						<Image src="images/servicenowimage.png"/>
+					</HBox>
+				</VBox>
+			</fm:GridListItem>
+			<FlexBox justifyContent="Start" class="startFlex">
+				<VBox justifyContent="Start" class="flexscnd sapUiLargeMarginBegin">
+					<Text class="hdrtext sapUiTinyMargin sapUiSmallMarginTop" text="Get started easily with 4 simple steps!"/>
+					<Text class="mentxt sapUiTinyMargin" text="Click Configuration on the left hand side Menu to:"/>
+					<HBox class="sapUiTinyMargin">
+						<Text text="1" class=" circ1"/>
+						<Text class="icntext sapUiTinyMargin" text="Check pre-requisites to ensure that system is ready for the integration"/>
+					</HBox>
+					<HBox class="sapUiTinyMargin">
+						<Text text="2" class=" circ2"/>
+						<Text class="icntext sapUiTinyMargin" text=" Add your ServiceNow� instance"/>
+					</HBox>
+					<HBox class="sapUiTinyMargin">
+						<Text text="3" class=" circ3"/>
+						<Text class="icntext sapUiTinyMargin" text=" Configure Transaction Types"/>
+					</HBox>
+					<HBox class="sapUiTinyMargin">
+						<Text text="4" class=" circ4"/>
+						<Text class="icntext sapUiTinyMargin" text=" Configure Status Mapping"/>
+					</HBox>
+					<Text class="sapUiMediumMarginTop sapUiTinyMarginBegin footertxt" text="That�s it, You are all set!"/>
+				</VBox>
+			</FlexBox>
+			<HBox class="sapUiSmallMarginTop boxcolor">
+				<Text class="sapUiLargeMarginBegin sapUiTinyMarginTop mrgn" text="If you need any support, please contact:"/>
+				<Link id="detFormPackageTitle" text="charm@corealm.com" class="linkstyl sapUiTinyMarginTop sapUiSmallMarginBegin"/>
+			</HBox>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Text class="sapUiLargeMarginBegin sapUiTinyMarginTop copyrgt" text="Copyright CoreALM� LLC. - All Rights Reserved"/>
+			</Toolbar>
+		</footer>-->
+	</Page>
+</mvc:View>

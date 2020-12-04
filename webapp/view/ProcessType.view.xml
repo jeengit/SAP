@@ -1,0 +1,117 @@
+<mvc:View controllerName="serNow.conect.alert.controller.ProcessType" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Page id="page" title="" class="processTypePage sapUiResponsiveContentPadding" showNavButton="true" navButtonPress="onNavBack">
+		<customHeader>
+			<Bar class="headerBar">
+				<contentLeft>
+					<Image src="images/corealm-logo-2019.png" width="5rem"/>
+					<Button icon="sap-icon://nav-back" press="onNavBack" class="sapUiSmallMarginBegin" tooltip="Back to Mandatory Configuration"/>
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Assignment Routing" class="font-lg"/>
+				</contentMiddle>
+				<contentRight>
+					<HBox>
+						<Button text="{parts: [ 'loginModel>/First', 'loginModel>/Last' ],formatter: 'com.coreALMDigitalScrumboard.util.formatter.userList'}"
+							tooltip="{loginModel>/name}" id="userLogin" type="Transparent" press="onUserNamePress"
+							class="sapUiTinyMarginEnd sapUiTinyMarginBegin username"></Button>
+						<Label id="userId" text="{loginModel>/PARTNER}" visible="false"></Label>
+					</HBox>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<!--<VBox >-->
+			<f:SimpleForm editable="true" class="sapUiLargeMarginTopBottom sapUiSizeCompact" layout="ResponsiveGridLayout" labelSpanXL="4"
+				labelSpanL="4" labelSpanM="6" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+				columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<f:content>
+					<Label text="ServiceNow Project" required="true"/>
+					<ComboBox id="jiraProjSelId" selectedKey="{jiraMap>/Jiraproject}" items="{jiraProjectModel>/}" width="40%" change="onJiraProjectChange">
+						<core:Item key="{jiraProjectModel>id}" text="{jiraProjectModel>name}"></core:Item>
+					</ComboBox>
+					<Label text="Change Request Issue Type" required="true"/>
+					<ComboBox id="jiraWPId" selectedKey="{jiraMap>/Wpjira}" items="{ path: 'jiraResourcesModel>/issueTypes' }" width="40%"
+						change="onJiraWPChangeAdmin">
+						<core:Item key="{jiraResourcesModel>id}" text="{jiraResourcesModel>name}"></core:Item>
+					</ComboBox>
+				</f:content>
+			</f:SimpleForm>
+			<!--<HBox justifyContent="Center">
+					<Button text="Save" type="Accept" press="onJiraMappingSave" class="sapUiLargeMarginBottom"/>
+				</HBox>
+			</VBox>-->
+			<Table id="table" width="auto" items="{ path: '/JiraChaRMProcessMappingSet'}" noDataText="No Data" class="sapUiSizeCompact"
+				visible="{=${jiraMap>/Jiraproject} &amp;&amp; ${jiraMap>/Wpjira} ? true : false }"
+				mode="{=${authModel>/Auth} ? 'SingleSelectLeft' : 'None'}" updateFinished=".onUpdateFinished" selectionChange="onTableSelect">
+				<headerToolbar>
+					<Toolbar width="100%">
+						<Title id="tableHeader" text="Change Types" level="H3"/>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://add" tooltip="Add Change Type" id="add" press=".openChangeTypeDialog"
+							visible="{=${authModel>/Auth} ? false : false}"/>
+						<Button icon="sap-icon://edit" tooltip="Edit Change Type" id="edit" enabled="false" press=".openChangeTypeDialog"
+							visible="{=${authModel>/Auth} ? true : false}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="nameColumn">
+						<Text text="ServiceNow Change" id="nameColumnTitle"/>
+					</Column>
+					<Column id="unitNumberColumn">
+						<Text text="Alert Transaction" id="unitNumberColumnTitle"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press=".onPress">
+						<cells>
+							<ObjectIdentifier title="{Valueinetool}"/>
+							<ObjectIdentifier title="{Valueinsap}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<!--<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Edit" icon="sap-icon://edit" press="onSaveProcessMapping"/>
+				<Button type="Accept" text="Add" icon="sap-icon://add" press="onSaveProcessMapping"/>
+			</Toolbar>
+		</footer>-->
+		<dependents>
+			<Dialog title="Assignment Routing" id="dimensionsPopover" class="sapUiSizeCompact" contentWidth="30%">
+				<content>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="ServiceNow Change"/>
+							<!--<Select items="{/CHARMProcessTypesSet}">
+								<items>
+									<core:Item text="{}" key="{}"/>
+								</items>
+							</Select>-->
+							<Input value="{pModel>Valueinetool}" enabled="{pModel>edit}"/>
+							<Label text="Alert Transaction"/>
+							<ComboBox items="{/CHARMProcessTypesSet}" selectedKey="{pModel>Valueinsap}">
+								<items>
+									<core:Item text="{PDescription} - {ProcessType}" key="{ProcessType}"/>
+								</items>
+							</ComboBox>
+							<Label text="Statuses" visible="{pModel>edit}"/>
+							<MultiComboBox items="{sNowStatus>/}" visible="{pModel>edit}" selectedKeys="{pModel>status}">
+								<core:Item text="{sNowStatus>desc}" key="{sNowStatus>key}"/>
+							</MultiComboBox>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+				<beginButton>
+					<Button text="Save" type="Emphasized" press=".onChangeTypeCreate"/>
+				</beginButton>
+				<endButton>
+					<Button text="Cancel" press=".onDialogClose"/>
+				</endButton>
+			</Dialog>
+			<!--<core:Fragment fragmentName="snow.charm.SNow_Charm.view.Add" type="XML"/>-->
+		</dependents>
+	</Page>
+</mvc:View>

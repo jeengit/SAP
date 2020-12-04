@@ -1,0 +1,546 @@
+*:not(.sapUiIcon) {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.logoClass {
+    width: 222px;
+    margin: 30px 10px 10px 10px;
+    position: absolute;
+}
+
+.font-lg {
+    font-size: 18px;
+    color: #555!important;
+}
+
+.sideNavigation .sapTntNavLIItem>.sapUiIcon {
+    color: #646f79!important;
+    font-size: 16px!important;
+}
+
+.sideNavigation {
+    height: 100%;
+    background: #060221!important;
+}
+
+.sapUiSizeCompact .sapTntNavLI span.sapTntNavLIGroupIcon {
+    padding: 0.5rem!important;
+}
+
+.sapTntNavLIGroupItem>.sapMText {
+    padding-left: 3rem!important;
+}
+
+.sideNavigation .sapTntNavLIItem {
+    background-color: transparent!important;
+    height: 2.1rem!important;
+    border: none!important;
+    height: auto!important;
+    outline: none;
+}
+
+.sideNavigation.sapContrast.sapTntSideNavigation {
+    border-right: 0px solid transparent!important;
+    background: #151b26!important;
+}
+
+.sideNavigation li:first-child {
+    margin: 10px;
+    height: 66px;
+}
+
+.sideNavigation .mainNav li:first-child .sapTntNavLIGroup {
+    height: 100%!important;
+    background-image: url(../images/corealm-logo-white.png)!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+}
+
+.sideNavigation .mainNav li:first-child .sapTntNavLIGroup:hover {
+    background-color: transparent!important;
+}
+
+.sapMSplitContainerMaster {
+    width: 241px;
+}
+
+.sideNavigation .sapTntNavLIItemSelected::before {
+    outline: none!important;
+}
+
+.sapMShellBrandingBar {
+    display: none;
+}
+
+.sideNavigation .sapTntNavLIItem:hover,
+.sideNavigation .sapTntSideNavigationSeparator {
+    background-color: rgba(255, 255, 255, 0.08)!important;
+}
+
+.sideNavigation .sapTntNavLIItem:focus>span {
+    color: white!important;
+}
+
+.sideNavigation .sapTntNavLIItemSelected .sapTntNavLIItem,
+.sideNavigation .sapTntNavLIItemSelected.sapTntNavLIGroupItem {
+    background-color: transparent!important;
+}
+
+.expandBtn {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    z-index: 10;
+}
+
+.expandBtn .sapMBtnInner {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.homeFlex {
+    background: #2C95DA;
+    height: 220px;
+}
+
+.headFlex {
+    font-size: 2.0rem;
+    color: #F9C937;
+    text-align: center!important;
+}
+
+.homeTxt {
+    font-size: 1.075rem;
+    text-align: left!important;
+    color: #fff;
+}
+
+.startFlex {
+    margin-left: 8rem;
+}
+
+.hdrtext {
+    font-size: 1.5rem!important;
+    color: #757373!important;
+}
+
+.mentxt {
+    font-size: 18px;
+    color: #757373!important;
+}
+
+.circ1,
+.circ2,
+.circ3,
+.circ4 {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    color: #f1f4f7!important;
+    padding-left: 12px;
+    padding-top: 8px;
+}
+
+.circ1 {
+    background: #66daca;
+}
+
+.circ2 {
+    background: #ec8b27;
+}
+
+.circ3 {
+    background: #f7c451;
+}
+
+.circ4 {
+    background: #e635d9;
+}
+
+.icntext {
+    font-size: 15px;
+}
+
+.footertxt {
+    font-size: 15px;
+    color: #757373!important;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.mrgn {
+    padding-left: 8rem;
+}
+
+.linkstyl {
+    font-style: italic;
+    color: #2C95DA!important;
+}
+
+.initialPage .sapMFooter-CTX {
+    background-color: #d7d9dc!important;
+    border-top: 1px solid #d7d9dc!important;
+}
+
+.copyrgt {
+    font-size: 13px;
+    padding-right: 1rem;
+    color: black!important;
+    margin-bottom: 8px!important;
+    text-shadow: none;
+}
+
+.detailsPage .sapUiForm {
+    padding: 2rem 0 3rem 0;
+}
+
+.sapUiSimpleFixFlexFixed.sapUiSimpleFixFlexFixedWrap {
+    display: none!important;
+}
+
+.sapUiSimpleFixFlex {
+    padding-top: 0!important;
+}
+
+.connectPage .sapUiForm {
+    padding: 0px!important;
+}
+
+.detailsPage .sapMListTbl .sapUiIcon:not(.sapMLIBImgNav) {
+    font-size: 1.3rem!important;
+}
+
+.reportTable {
+    margin-top: 0.5rem;
+    height: 100%;
+}
+
+.reportTable .sapMText {
+    font-size: 0.8rem!important;
+}
+
+.reportTable .sapUiTableMTbr,
+.reportTable .sapMIBar {
+    height: 3rem!important;
+}
+
+.selClassRepo {
+    margin-left: 9px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.exportButton .sapMBtnInner {
+    background: #049004!important;
+}
+
+.exportButton .sapMBtnInner:hover {
+    background: #049004!important;
+    opacity: 0.8;
+}
+
+.exportButton .sapMBtnInner span {
+    color: white;
+}
+
+.sapMFFLI {
+    min-height: 2.5rem!important;
+}
+
+.sapMFFLITitle {
+    font-size: 1rem!important;
+}
+
+.sapUiTableTr>td {
+    border-right: none!important;
+}
+
+.processDetTable .sapMSltLabel {
+    text-align: center;
+}
+
+.genericTileHBox {
+    width: 73%;
+    margin: 3rem 0 0 12%;
+    justify-content: space-between;
+}
+
+.tileLayout {
+    width: 14rem!important;
+    height: 11rem!important;
+    border: none;
+    border-top: 3px solid;
+}
+
+.tileLayout.prereq {
+    border-color: rgb(255, 110, 32);
+}
+
+.tileLayout.prereq:hover {
+    background: rgb(245, 217, 203);
+}
+
+.tileLayout.connectivity {
+    border-color: rgb(0, 213, 189);
+}
+
+.tileLayout.connectivity:hover {
+    background: rgb(216, 249, 245);
+}
+
+.tileLayout.mapping {
+    border-color: rgb(227, 0, 248);
+}
+
+.tileLayout.mapping:hover {
+    background: rgb(244, 218, 247);
+}
+
+.tileLayout.error {
+    border-color: rgb(239 10 31);
+}
+
+.tileLayout.error:hover {
+    background: rgb(255 188 194);
+}
+
+.help1 .sapMGTHdrIconImage {
+    color: rgb(255, 110, 32);
+    background-color: rgb(245, 217, 203);
+}
+
+.help2 .sapMGTHdrIconImage {
+    color: rgb(0, 213, 189);
+    background-color: rgb(216, 249, 245);
+}
+
+.help3 .sapMGTHdrIconImage {
+    color: rgb(227, 0, 248);
+    background-color: rgb(244, 218, 247);
+}
+
+.tileLayout .sapMGTTitle {
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.tileLayout .sapMTcInnerMarker {
+    margin-top: 38px;
+    font-size: 12px;
+    text-align: center!important;
+}
+
+.tileLayout .sapMGTHdrIconImage {
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    left: 41%;
+}
+
+.tileLayout .sapMTextMaxLine {
+    margin-top: 3.5rem;
+    text-align: center;
+}
+
+.prereqVBox {
+    margin: 1rem 0 0 13%;
+}
+
+.preReqIcons {
+    line-height: 3rem;
+    margin-left: 1rem;
+}
+
+.lightBulbClass {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.prereqVBox>.sapMHBox {
+    padding-right: 1rem;
+    border: 1px solid lightgray;
+}
+
+.popoverClass {
+    padding: 1rem;
+}
+
+.preVBox,
+.connVBox,
+.mapVBox {
+    text-align: center!important;
+}
+
+.preVBox .sapMFlexItem>.sapMLabel {
+    border: 1px solid rgb(255, 110, 32);
+}
+
+.connVBox .sapMFlexItem>.sapMLabel {
+    border: 1px solid rgb(0, 213, 189);
+}
+
+.mapVBox .sapMFlexItem>.sapMLabel {
+    border: 1px solid rgb(227, 0, 248);
+}
+
+.textClassVBox,
+.prereqTextVBox {
+    padding-left: 0.5rem;
+    width: 74%;
+    margin: 3rem 0 0 12%;
+}
+
+.textClassVBox div:nth-child(2),
+.prereqTextVBox div:nth-child(2),
+.prereqTextVBox div:nth-child(3) {
+    margin-top: 1rem;
+}
+
+.helpVBoxClass {
+    padding: 2rem;
+}
+
+.helpVBoxClass div:nth-child(2) {
+    margin-top: 1rem;
+}
+
+.helpVBoxClass div:nth-child(4) {
+    margin: 1rem 0;
+}
+
+.helpVBoxClass div:nth-child(4)>span {
+    font-weight: bold;
+}
+
+.helpTileClass {
+    width: 14rem!important;
+    height: 14rem!important;
+    border: none;
+    border-radius: 4px;
+}
+
+.helpTileClass .sapMGTTitle {
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.helpTileClass .sapMTcInnerMarker {
+    margin-top: 38px;
+    font-size: 12px;
+    text-align: center!important;
+}
+
+.helpTileClass .sapMGTHdrIconImage {
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 3.8rem;
+    min-height: 3.5rem;
+    padding-top: 0px;
+    line-height: 2.5;
+    float: none;
+    margin-top: 9%;
+}
+
+.helpTileClass .sapMGTHdrContent {
+    text-align: center!important;
+}
+
+.helpTileClass .sapMTextMaxLine {
+    margin-top: 3.5rem;
+    text-align: center;
+}
+
+.contVBox .sapMText {
+    text-align: center!important;
+    margin-bottom: 1rem;
+}
+
+.helpTileClass .sapMGTContent {
+    height: auto!important;
+}
+
+.tileHBox {
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 15%;
+}
+
+.tableClass .sapUiTableCnt {
+    border-top: none!important;
+}
+
+.tableClass .sapMTitle {
+    font-size: 0.875rem!important;
+    font-weight: bold;
+}
+
+.tableClass .sapUiTableCell .sapMText,
+.tableClass .sapUiTableCell .sapMLnk {
+    font-size: 0.75rem!important;
+}
+
+.tableClass .sapMTB {
+    background: white;
+    height: 3rem!important;
+}
+
+.tableClass .sapUiTableHSb,
+.tableClass .sapUiTableHSbBg {
+    height: 8px!important;
+}
+
+.tableClass .sapUiTableCCnt {
+    display: block!important;
+}
+
+.tableClass .sapUiTableCol {
+    background: white;
+    padding-top: 6px!important;
+    padding-bottom: 2px!important;
+}
+
+.tableClass .sapUiTableCol .sapMLabel {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.tableClass .sapUiTableCell .sapMText {
+    font-size: 13px;
+}
+
+.tableClass .sapUiTableColHdrTr {
+    height: 32px!important;
+}
+
+.tableClass .sapUiTableColHdrTr {
+    border-top: none;
+}
+
+.tableClass .sapUiTableTbr {
+    height: 3rem!important;
+}
+
+.charmClass[data-snowid="snow"] .sapMLnk {
+    color: #2b7c2b!important;
+}
+
+.username .sapMBtnInner {
+    padding: 0;
+}
+
+.username:hover>.sapMBtnHoverable,
+.username:hover {
+    background: none!important;
+}
+
+.username .sapMBtnContent {
+    background: #FFC53C;
+    border-radius: 100px;
+    color: #fff!important;
+    font-weight: bold;
+    width: 35px!important;
+    height: 35px!important;
+    line-height: 2.5;
+    margin-top: 1px;
+}
