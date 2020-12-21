@@ -12,7 +12,7 @@ sap.ui.define([
 
 			model.read("/Authority_CheckSet('X')", {
 				success: function (data) {
-					if (data.Auth === "N") {
+					if (data.Auth === "NA") {
 						data.Auth = "";
 					}
 					that.setModel(new JSONModel(data), "authModel");
