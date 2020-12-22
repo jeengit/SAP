@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController, Controller) {
 	"use strict";
 
-	return BaseController.extend("serNow.conect.alert.controller.MandConfig", {
+	return BaseController.extend("serNow.conect.alert.controller.loginCustomer", {
 		onAfterRendering: function () {
 			this.getLoginName();
 		},
